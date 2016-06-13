@@ -1,23 +1,25 @@
-function ToDoList () {
-  this.listItem = [];
+function ToDoList (todoItem) {
+  this.todoItem = todoItem;
 }
+
+// function Student (name, class, age){
+//   this.name = name;
+//   this.class = class;
+//   this.age = age;
+// }
 
 $(document).ready(function() {
 
-  $("form#toDoForm").submit(function(event) {
+  $(".toDoForm").submit(function(event) {
     event.preventDefault();
+    debugger;
     var todoItem = $("input#userInput").val();
 
-    var finalToDoList = new ToDoList;
-    finalToDoList.listItem.push(todoItem);
-    console.log(todoItem);
-    debugger;
-    // var newToDoList = ToDoList.listItem.push([todoItem])
-  //   $(".add-toDoList").each(function() {
-  //     var inputtedStreet = $(this).find("input.new-street").val();
-  // });
+// "todoItem" below has to match the object key on line 2
+    var newToDoList = new ToDoList(todoItem);
 
-  $("ul#userList").append("<li><span class='item'>" + finalToDoList.listItem + "</span></li>");
+// "todoItem" below has to match the object key on line 2
+  $("#userList").append("<li>" + newToDoList.todoItem + "</li>");
 
   });
 });
